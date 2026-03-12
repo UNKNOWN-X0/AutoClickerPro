@@ -5,7 +5,7 @@ A powerful, cross-platform auto clicker with a clean dark UI — built with Pyth
 ![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-blue)
 ![Python](https://img.shields.io/badge/python-3.8%2B-brightgreen)
 ![License](https://img.shields.io/badge/license-MIT-green)
-![Release](https://img.shields.io/github/v/release/UNKNOWN-X0/AutoClickerPro/releases)
+![Release](https://img.shields.io/github/v/release/UNKNOWN-X0/AutoClickerPro)
 
 ---
 
