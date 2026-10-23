@@ -3,7 +3,6 @@
 [![Python](https://img.shields.io/badge/Python-3.8%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Latest Release](https://img.shields.io/github/v/release/UNKNOWN-X0/AutoClickerPro)](https://github.com/UNKNOWN-X0/AutoClickerPro/releases)
-[![Pylint](https://github.com/UNKNOWN-X0/AutoClickerPro/actions/workflows/pylint.yml/badge.svg)](https://github.com/UNKNOWN-X0/AutoClickerPro/actions/workflows/pylint.yml)
 
 AutoClicker Pro is a Python desktop app for automating mouse clicks and recording simple mouse-and-keyboard macros. It uses a dark interface and saves its settings locally.
 
