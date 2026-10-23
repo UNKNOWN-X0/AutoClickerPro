@@ -13,12 +13,14 @@ import platform
 NAME = "AutoClickerPro"
 ENTRY = "auto_clicker.py"
 
+
 def run(cmd):
     print(f"\n>> {cmd}")
     result = subprocess.run(cmd, shell=True)
     if result.returncode != 0:
         print(f"ERROR: command failed with code {result.returncode}")
         sys.exit(result.returncode)
+
 
 def main():
     # Install pyinstaller if needed
@@ -47,7 +49,7 @@ def main():
     windowed = "--windowed" if system in ("Windows", "Darwin") else ""
 
     cmd = (
-        f'pyinstaller --onefile {windowed} --name {NAME} {icon_flag} {ENTRY}'
+        f"pyinstaller --onefile {windowed} --name {NAME} {icon_flag} {ENTRY}"
     ).strip()
 
     run(cmd)
@@ -61,6 +63,7 @@ def main():
 
     print(f"\n✅  Build complete: {dst}")
     print("    Share this file — no Python installation needed to run it.")
+
 
 if __name__ == "__main__":
     main()

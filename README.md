@@ -11,16 +11,16 @@ A powerful, cross-platform auto clicker with a clean dark UI — built with Pyth
 
 ## ✨ Features
 
-| Feature | Description |
-|---|---|
-| ⚡ **Custom Speed** | Set interval by Hours / Mins / Secs / Milliseconds |
-| 🖱️ **Click Types** | Left, Right, Middle — Single or Double click |
-| 🗺️ **Multi-Point** | Sequential click targets with automatic looping |
-| 🎲 **Anti-Detection** | Random interval jitter + random position offset |
-| ⌨️ **Hotkeys** | Fully customizable start/stop keyboard shortcuts |
-| 🔁 **Repeat Modes** | Infinite loop or fixed repeat count |
+| Feature               | Description                                            |
+| --------------------- | ------------------------------------------------------ |
+| ⚡ **Custom Speed**   | Set interval by Hours / Mins / Secs / Milliseconds     |
+| 🖱️ **Click Types**    | Left, Right, Middle — Single or Double click           |
+| 🗺️ **Multi-Point**    | Sequential click targets with automatic looping        |
+| 🎲 **Anti-Detection** | Random interval jitter + random position offset        |
+| ⌨️ **Hotkeys**        | Fully customizable start/stop keyboard shortcuts       |
+| 🔁 **Repeat Modes**   | Infinite loop or fixed repeat count                    |
 | 🎬 **Macro Recorder** | Record & replay mouse + keyboard sequences with timing |
-| 💾 **Config Saving** | Settings auto-saved and restored on next launch |
+| 💾 **Config Saving**  | Settings auto-saved and restored on next launch        |
 
 ---
 
@@ -28,11 +28,11 @@ A powerful, cross-platform auto clicker with a clean dark UI — built with Pyth
 
 Go to the [**Releases**](../../releases) page and download for your OS:
 
-| OS | File |
-|---|---|
+| OS         | File                         |
+| ---------- | ---------------------------- |
 | 🪟 Windows | `AutoClickerPro-windows.exe` |
-| 🍎 macOS | `AutoClickerPro-macos` |
-| 🐧 Linux | `AutoClickerPro-linux` |
+| 🍎 macOS   | `AutoClickerPro-macos`       |
+| 🐧 Linux   | `AutoClickerPro-linux`       |
 
 > **Windows:** You may see a SmartScreen warning — click "More info → Run anyway". This is normal for unsigned apps.  
 > **macOS:** Run `chmod +x AutoClickerPro-macos && ./AutoClickerPro-macos` or right-click → Open.  
@@ -43,6 +43,7 @@ Go to the [**Releases**](../../releases) page and download for your OS:
 ## 🐍 Run from Source
 
 ### Requirements
+
 - Python 3.8+
 - pip
 
