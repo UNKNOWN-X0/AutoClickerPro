@@ -1,109 +1,67 @@
-# ⚡ AutoClicker Pro
+# AutoClicker Pro
 
-A powerful, cross-platform auto clicker with a clean dark UI — built with Python.
+[![Python](https://img.shields.io/badge/Python-3.8%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Pylint](https://github.com/UNKNOWN-X0/AutoClickerPro/actions/workflows/pylint.yml/badge.svg)](https://github.com/UNKNOWN-X0/AutoClickerPro/actions/workflows/pylint.yml)
 
-![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-blue)
-![Python](https://img.shields.io/badge/python-3.8%2B-brightgreen)
-![License](https://img.shields.io/badge/license-MIT-green)
-![Release](https://img.shields.io/github/v/release/UNKNOWN-X0/AutoClickerPro)
+AutoClicker Pro is a Python desktop app for automating mouse clicks and recording simple mouse-and-keyboard macros. It uses a dark interface and saves its settings locally.
 
----
+## Features
 
-## ✨ Features
+- Configure click interval down to milliseconds and choose left, right, or middle click, including double-clicks.
+- Repeat clicks indefinitely or set a fixed count.
+- Cycle through multiple screen coordinates, with optional timing and position variation.
+- Assign keyboard shortcuts to start and stop clicking.
+- Record and replay mouse and keyboard input sequences.
+- Save and restore app settings automatically.
+- Move the pointer to the top-left corner to trigger PyAutoGUI's emergency failsafe.
 
-| Feature               | Description                                            |
-| --------------------- | ------------------------------------------------------ |
-| ⚡ **Custom Speed**   | Set interval by Hours / Mins / Secs / Milliseconds     |
-| 🖱️ **Click Types**    | Left, Right, Middle — Single or Double click           |
-| 🗺️ **Multi-Point**    | Sequential click targets with automatic looping        |
-| 🎲 **Anti-Detection** | Random interval jitter + random position offset        |
-| ⌨️ **Hotkeys**        | Fully customizable start/stop keyboard shortcuts       |
-| 🔁 **Repeat Modes**   | Infinite loop or fixed repeat count                    |
-| 🎬 **Macro Recorder** | Record & replay mouse + keyboard sequences with timing |
-| 💾 **Config Saving**  | Settings auto-saved and restored on next launch        |
+## Run from source
 
----
-
-## 📥 Download (No Python required)
-
-Go to the [**Releases**](../../releases) page and download for your OS:
-
-| OS         | File                         |
-| ---------- | ---------------------------- |
-| 🪟 Windows | `AutoClickerPro-windows.exe` |
-| 🍎 macOS   | `AutoClickerPro-macos`       |
-| 🐧 Linux   | `AutoClickerPro-linux`       |
-
-> **Windows:** You may see a SmartScreen warning — click "More info → Run anyway". This is normal for unsigned apps.  
-> **macOS:** Run `chmod +x AutoClickerPro-macos && ./AutoClickerPro-macos` or right-click → Open.  
-> **Linux:** Run `chmod +x AutoClickerPro-linux && ./AutoClickerPro-linux`
-
----
-
-## 🐍 Run from Source
-
-### Requirements
-
-- Python 3.8+
-- pip
-
-### Install dependencies
+Requires Python 3.8 or later.
 
 ```bash
-pip install customtkinter pyautogui pynput
-```
-
-### Run
-
-```bash
+python -m pip install -r requirements.txt
 python auto_clicker.py
 ```
 
----
+On macOS, you may need to grant Accessibility permissions to the terminal or packaged app before it can control the mouse and keyboard. Platform permissions and input-library support can also affect behavior on other systems.
 
-## 🔨 Build Executable Yourself
+## Build an executable
+
+Run the build helper on the operating system you want to package for:
 
 ```bash
-pip install pyinstaller
-pyinstaller --onefile --windowed --name AutoClickerPro auto_clicker.py
+python build.py
 ```
 
-Output will be in the `dist/` folder.
+The helper installs PyInstaller if needed, then writes the executable to `dist/`. Build artifacts are local; download-ready binaries are available only if published on the [Releases](../../releases) page.
 
----
+## Configuration and privacy
 
-## 🛡️ Safety
+The app stores settings in `~/.autoclicker_config.json`. The project code does not include an analytics or telemetry service. Macro files can contain recorded key presses and screen coordinates, so review them before sharing.
 
-- PyAutoGUI **failsafe is enabled** — move your mouse to the **top-left corner** of the screen to emergency-stop all clicking.
-- No data is collected. The app only saves your settings locally at `~/.autoclicker_config.json`.
+## Project layout
 
----
+- `auto_clicker.py` — launcher
+- `autoclicker/app.py` — desktop interface and event handlers
+- `autoclicker/engine.py` — click and macro playback logic
+- `autoclicker/config.py` — app constants and local settings path
+- `autoclicker/state.py` — shared runtime state
+- `autoclicker/dependencies.py` — UI and input-library setup
+- `build.py` — local executable packaging helper
+- `tests/test_engine.py` — engine regression tests
 
-## 🖥️ Screenshots
+## Tests
 
-> _Add screenshots here after first run_
+Run the engine tests with:
 
----
+```bash
+python -m unittest discover -s tests
+```
 
-## 📄 License
+The tests use fake input devices and do not move or click the real mouse.
 
-MIT License — see [LICENSE](LICENSE)
+## License
 
----
-
-## 🤝 Contributing
-
-Pull requests welcome! Please open an issue first to discuss major changes.
-
-## Module map
-
-- `auto_clicker.py`: launch entry point, unchanged for build commands.
-- `autoclicker/dependencies.py`: dependency checks and automation-library setup.
-- `autoclicker/config.py`: application settings and theme constants.
-- `autoclicker/state.py`: shared state object.
-- `autoclicker/engine.py`: click loops and macro playback; UI updates arrive through callbacks.
-- `autoclicker/app.py`: UI composition, actions, recording, hotkeys, and configuration persistence.
-- `build.py`: packaging.
-- `tests/test_engine.py`: engine regression tests using fake input devices.
-
-Run `python auto_clicker.py` as before. Run tests with `python -m unittest discover -s tests`; tests do not click the real mouse or require a display. Keep the `autoclicker/` package alongside the launcher.
+MIT — see [LICENSE](LICENSE).
