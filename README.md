@@ -94,3 +94,16 @@ MIT License — see [LICENSE](LICENSE)
 ## 🤝 Contributing
 
 Pull requests welcome! Please open an issue first to discuss major changes.
+
+## Module map
+
+- `auto_clicker.py`: launch entry point, unchanged for build commands.
+- `autoclicker/dependencies.py`: dependency checks and automation-library setup.
+- `autoclicker/config.py`: application settings and theme constants.
+- `autoclicker/state.py`: shared state object.
+- `autoclicker/engine.py`: click loops and macro playback; UI updates arrive through callbacks.
+- `autoclicker/app.py`: UI composition, actions, recording, hotkeys, and configuration persistence.
+- `build.py`: packaging.
+- `tests/test_engine.py`: engine regression tests using fake input devices.
+
+Run `python auto_clicker.py` as before. Run tests with `python -m unittest discover -s tests`; tests do not click the real mouse or require a display. Keep the `autoclicker/` package alongside the launcher.
