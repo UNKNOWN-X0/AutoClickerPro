@@ -1,0 +1,434 @@
+{
+  "schemaVersion": 1,
+  "ok": false,
+  "command": "finalize",
+  "status": "fail",
+  "type": "architecture",
+  "quality": "showcase",
+  "startedAt": "2026-10-24T18:41:54.807Z",
+  "specification": {
+    "path": "/Users/thanate/Developer/Tools/AutoClickerPro/.archify/architecture-autoclicker-pro-20261024-190428/candidate.json",
+    "sha256": "b32f8c7e6c090e86af7940fef0382b04d270226a5756a52abe4dc1620861ef38",
+    "bytes": 7706
+  },
+  "artifact": {
+    "path": "/Users/thanate/Developer/Tools/AutoClickerPro/.archify/architecture-autoclicker-pro-20261024-190428/autoclicker-pro.html",
+    "sha256": "68b1fb76be992b21d1bde71199df4d4cb45270e36558a4c44488c52981d1443b",
+    "bytes": 825746
+  },
+  "stages": {
+    "validate": {
+      "status": "pass",
+      "exitCode": 0,
+      "durationMs": null,
+      "execution": "embedded-in-deliver",
+      "command": [
+        "/Users/thanate/.nvm/versions/node/v22.23.1/bin/node",
+        "/Users/thanate/.codex/skills/archify/bin/archify.mjs",
+        "deliver",
+        "architecture",
+        "/Users/thanate/Developer/Tools/AutoClickerPro/.archify/architecture-autoclicker-pro-20261024-190428/candidate.json",
+        "/Users/thanate/Developer/Tools/AutoClickerPro/.archify/architecture-autoclicker-pro-20261024-190428/autoclicker-pro.html",
+        "--quality",
+        "showcase",
+        "--repo-root",
+        "/Users/thanate/Developer/Tools/AutoClickerPro",
+        "--json"
+      ],
+      "receipt": {
+        "schemaVersion": 1,
+        "ok": true,
+        "command": "validate",
+        "specification": {
+          "sha256": "b32f8c7e6c090e86af7940fef0382b04d270226a5756a52abe4dc1620861ef38",
+          "bytes": 7706
+        },
+        "validation": {
+          "checksPassed": 9,
+          "checkCount": 9,
+          "compositionProfile": "showcase",
+          "compositionStatus": "pass",
+          "errors": 0,
+          "warnings": 0
+        }
+      }
+    },
+    "deliver": {
+      "status": "pass",
+      "exitCode": 0,
+      "durationMs": 382,
+      "command": [
+        "/Users/thanate/.nvm/versions/node/v22.23.1/bin/node",
+        "/Users/thanate/.codex/skills/archify/bin/archify.mjs",
+        "deliver",
+        "architecture",
+        "/Users/thanate/Developer/Tools/AutoClickerPro/.archify/architecture-autoclicker-pro-20261024-190428/candidate.json",
+        "/Users/thanate/Developer/Tools/AutoClickerPro/.archify/architecture-autoclicker-pro-20261024-190428/autoclicker-pro.html",
+        "--quality",
+        "showcase",
+        "--repo-root",
+        "/Users/thanate/Developer/Tools/AutoClickerPro",
+        "--json"
+      ],
+      "receipt": {
+        "schemaVersion": 1,
+        "receiptId": "48bd5b9d-ef8b-4496-bd86-4d4a3c1ff01b",
+        "ok": true,
+        "command": "deliver",
+        "type": "architecture",
+        "input": "/Users/thanate/Developer/Tools/AutoClickerPro/.archify/architecture-autoclicker-pro-20261024-190428/candidate.json",
+        "output": "/Users/thanate/Developer/Tools/AutoClickerPro/.archify/architecture-autoclicker-pro-20261024-190428/autoclicker-pro.html",
+        "specification": {
+          "sha256": "b32f8c7e6c090e86af7940fef0382b04d270226a5756a52abe4dc1620861ef38",
+          "bytes": 7706
+        },
+        "artifact": {
+          "sha256": "68b1fb76be992b21d1bde71199df4d4cb45270e36558a4c44488c52981d1443b",
+          "bytes": 825746
+        },
+        "validation": {
+          "checksPassed": 9,
+          "checkCount": 9,
+          "compositionProfile": "showcase",
+          "compositionStatus": "pass",
+          "errors": 0,
+          "warnings": 0
+        },
+        "evidence": {
+          "verified": true,
+          "repository": "https://github.com/UNKNOWN-X0/AutoClickerPro",
+          "revision": "1dc56d0933ffd26e9b6050252886c390d2345f7f",
+          "references": 16
+        },
+        "update": {
+          "status": "unavailable",
+          "installedVersion": null,
+          "availableVersion": null,
+          "releaseNotes": null,
+          "checkedAt": null,
+          "source": null,
+          "noticeRequired": false,
+          "noticeText": null,
+          "reason": "disabled"
+        }
+      }
+    },
+    "check": {
+      "status": "pass",
+      "exitCode": 0,
+      "durationMs": 133,
+      "command": [
+        "/Users/thanate/.nvm/versions/node/v22.23.1/bin/node",
+        "/Users/thanate/.codex/skills/archify/bin/archify.mjs",
+        "check",
+        "/Users/thanate/Developer/Tools/AutoClickerPro/.archify/architecture-autoclicker-pro-20261024-190428/autoclicker-pro.html",
+        "--require-provenance"
+      ],
+      "receipt": {
+        "ok": true,
+        "file": "/Users/thanate/Developer/Tools/AutoClickerPro/.archify/architecture-autoclicker-pro-20261024-190428/autoclicker-pro.html",
+        "artifact": {
+          "sha256": "68b1fb76be992b21d1bde71199df4d4cb45270e36558a4c44488c52981d1443b",
+          "bytes": 825746
+        },
+        "checks": [
+          {
+            "name": "single_svg",
+            "ok": true,
+            "details": [
+              "found 1 <svg> block(s)"
+            ]
+          },
+          {
+            "name": "finite_svg",
+            "ok": true,
+            "details": []
+          },
+          {
+            "name": "orthogonal_arrows",
+            "ok": true,
+            "details": []
+          },
+          {
+            "name": "label_route_clearance",
+            "ok": true,
+            "details": []
+          },
+          {
+            "name": "relationship_crossings",
+            "ok": true,
+            "details": []
+          },
+          {
+            "name": "relationship_corridors",
+            "ok": true,
+            "details": []
+          },
+          {
+            "name": "container_border_runs",
+            "ok": true,
+            "details": []
+          },
+          {
+            "name": "route_rhythm",
+            "ok": true,
+            "details": []
+          },
+          {
+            "name": "legend_clearance",
+            "ok": true,
+            "details": []
+          }
+        ],
+        "composition": {
+          "schemaVersion": 1,
+          "profile": "showcase",
+          "status": "pass",
+          "summary": {
+            "errors": 0,
+            "warnings": 0
+          },
+          "metrics": {
+            "properCrossings": 0,
+            "resolvedCrossovers": 0,
+            "ambiguousCorridors": 0,
+            "arrowheadCollisions": 0,
+            "containerBorderRuns": 0,
+            "labelRouteClearanceIssues": 0,
+            "labelCanvasOverflowIssues": 0,
+            "minLabelRouteClearance": 17.1,
+            "desktopReadabilityIssues": 0,
+            "viewportHeightIssues": 0,
+            "minProjectedNodeTextPx": 6.4,
+            "maxBends": 3,
+            "routesOverSuggestedBends": 4,
+            "maxStretch": 1.271,
+            "routesOverSuggestedStretch": 0,
+            "minSegmentPx": 24,
+            "minInteriorSegmentPx": 60,
+            "shortSegmentCount": 0,
+            "shortEndpointSegmentCount": 0,
+            "shortInteriorSegmentCount": 0,
+            "microSegmentCount": 0
+          },
+          "suggestedLimits": {
+            "bendsPerRelationship": 2,
+            "stretch": 1.35,
+            "segmentPx": 16,
+            "microSegmentPx": 8
+          },
+          "routeReview": {
+            "crossings": [],
+            "detours": [
+              {
+                "relationship": {
+                  "id": "user-to-app",
+                  "from": "user",
+                  "to": "desktop-app",
+                  "label": "configure and control",
+                  "collectionIndex": 0,
+                  "artifactIndex": 1
+                },
+                "bends": 3,
+                "stretch": 1.271
+              },
+              {
+                "relationship": {
+                  "id": "app-to-runtime",
+                  "from": "desktop-app",
+                  "to": "automation-runtime",
+                  "label": "starts worker with settings or macro",
+                  "collectionIndex": 3,
+                  "artifactIndex": 4
+                },
+                "bends": 3,
+                "stretch": 1.232
+              },
+              {
+                "relationship": {
+                  "id": "runtime-to-input-library",
+                  "from": "automation-runtime",
+                  "to": "pyautogui",
+                  "label": "click / move / press",
+                  "collectionIndex": 4,
+                  "artifactIndex": 5
+                },
+                "bends": 3,
+                "stretch": 1.239
+              },
+              {
+                "relationship": {
+                  "id": "input-library-to-system",
+                  "from": "pyautogui",
+                  "to": "system-input",
+                  "label": "controls pointer and keys",
+                  "collectionIndex": 5,
+                  "artifactIndex": 6
+                },
+                "bends": 3,
+                "stretch": 1.239
+              }
+            ]
+          },
+          "leadingSpace": {
+            "measured": true,
+            "emptyTopPx": 70,
+            "emptyTopRatio": 0.11,
+            "occupiedTop": 70,
+            "viewBoxTop": 0,
+            "canvasHeight": 636,
+            "typicalNodeHeight": 92,
+            "reviewSuggested": false
+          },
+          "desktopReadability": {
+            "budgetBasis": "recognized-declared-wide",
+            "readerContract": "declared-wide-v1",
+            "availableDiagramWidth": 1330,
+            "actualBudgetPx": 1330,
+            "actualReaderWidth": 1360,
+            "desiredReaderWidth": 1360,
+            "viewportCap": 1376,
+            "limit": "source-size",
+            "requestedTargetPx": 7.5,
+            "requestedTargetMet": false,
+            "hardFloorPx": 6,
+            "hardFloorMet": true,
+            "minimumOwner": {
+              "kind": "node",
+              "id": "user"
+            },
+            "minimumSourceTextPx": 6.4,
+            "minimumProjectedTextPx": 6.4,
+            "semanticTextCount": 21
+          },
+          "issues": []
+        },
+        "provenance": "current",
+        "deliveryReceiptId": "48bd5b9d-ef8b-4496-bd86-4d4a3c1ff01b"
+      }
+    },
+    "browser-check": {
+      "status": "fail",
+      "exitCode": 1,
+      "durationMs": 40,
+      "command": [
+        "/Users/thanate/.nvm/versions/node/v22.23.1/bin/node",
+        "/Users/thanate/.codex/skills/archify/bin/archify.mjs",
+        "browser-check",
+        "/Users/thanate/Developer/Tools/AutoClickerPro/.archify/architecture-autoclicker-pro-20261024-190428/autoclicker-pro.html",
+        "--json",
+        "--require-provenance",
+        "--out-dir",
+        "/Users/thanate/Developer/Tools/AutoClickerPro/.archify/architecture-autoclicker-pro-20261024-190428/review-line-clamp"
+      ],
+      "execution": "in-process",
+      "receipt": {
+        "schemaVersion": 1,
+        "ok": false,
+        "command": "browser-check",
+        "evidenceKind": "automated-browser",
+        "status": "fail",
+        "visualReview": "not-requested",
+        "provenance": "current",
+        "deliveryReceiptId": "48bd5b9d-ef8b-4496-bd86-4d4a3c1ff01b",
+        "artifact": {
+          "path": "/Users/thanate/Developer/Tools/AutoClickerPro/.archify/architecture-autoclicker-pro-20261024-190428/autoclicker-pro.html",
+          "sha256": "68b1fb76be992b21d1bde71199df4d4cb45270e36558a4c44488c52981d1443b",
+          "bytes": 825746
+        },
+        "state": {
+          "detail": "read",
+          "motion": "still"
+        },
+        "chrome": {
+          "status": "available",
+          "executable": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+        },
+        "diagnostics": [
+          {
+            "code": "viewer/browser-check-runtime",
+            "severity": "error",
+            "message": "browser-check could not complete its Chrome inspection.",
+            "subject": {
+              "artifact": "/Users/thanate/Developer/Tools/AutoClickerPro/.archify/architecture-autoclicker-pro-20261024-190428/autoclicker-pro.html"
+            },
+            "evidence": {
+              "reason": "Chrome DevTools read pipe failed: stream ended\nChrome process: still running.\nChrome transport: Node v22.23.1, libuv 1.51.0, darwin; pid=8934, exitCode=null, signalCode=null.\nChrome read pipe: readable=false, ended=true, destroyed=false, receivedBytes=0, messages=0, bufferedBytes=0.\nChrome write pipe: writable=true, ended=false, destroyed=false, completedWrites=1, writtenBytes=50, bufferedBytes=0."
+            },
+            "supportedFixes": [
+              "resolve the reported Chrome inspection error, then rerun browser-check"
+            ]
+          }
+        ],
+        "containment": {
+          "status": "fail",
+          "policy": "fit-or-reader-declared-readable-vertical-scroll",
+          "viewports": []
+        },
+        "themeStates": {
+          "status": "fail",
+          "viewports": []
+        },
+        "readability": {
+          "status": "fail",
+          "minimumProjectedNodeTextPx": 6,
+          "viewports": []
+        },
+        "viewerChrome": {
+          "status": "fail",
+          "viewports": []
+        },
+        "captures": {
+          "status": "not-requested",
+          "screenshots": [],
+          "contactSheet": null
+        },
+        "sidecars": {
+          "directory": "/Users/thanate/Developer/Tools/AutoClickerPro/.archify/architecture-autoclicker-pro-20261024-190428/review-line-clamp",
+          "receipt": "autoclicker-pro.browser-check.json",
+          "files": []
+        },
+        "error": "Chrome DevTools read pipe failed: stream ended\nChrome process: still running.\nChrome transport: Node v22.23.1, libuv 1.51.0, darwin; pid=8934, exitCode=null, signalCode=null.\nChrome read pipe: readable=false, ended=true, destroyed=false, receivedBytes=0, messages=0, bufferedBytes=0.\nChrome write pipe: writable=true, ended=false, destroyed=false, completedWrites=1, writtenBytes=50, bufferedBytes=0."
+      }
+    }
+  },
+  "browserCheck": {
+    "requested": true,
+    "ran": false
+  },
+  "diagnostics": [
+    {
+      "code": "viewer/browser-check-runtime",
+      "severity": "error",
+      "message": "browser-check could not complete its Chrome inspection.",
+      "subject": {
+        "artifact": "/Users/thanate/Developer/Tools/AutoClickerPro/.archify/architecture-autoclicker-pro-20261024-190428/autoclicker-pro.html"
+      },
+      "evidence": {
+        "reason": "Chrome DevTools read pipe failed: stream ended\nChrome process: still running.\nChrome transport: Node v22.23.1, libuv 1.51.0, darwin; pid=8934, exitCode=null, signalCode=null.\nChrome read pipe: readable=false, ended=true, destroyed=false, receivedBytes=0, messages=0, bufferedBytes=0.\nChrome write pipe: writable=true, ended=false, destroyed=false, completedWrites=1, writtenBytes=50, bufferedBytes=0."
+      },
+      "supportedFixes": [
+        "resolve the reported Chrome inspection error, then rerun browser-check"
+      ]
+    }
+  ],
+  "evidence": {
+    "receipt": "/Users/thanate/Developer/Tools/AutoClickerPro/.archify/architecture-autoclicker-pro-20261024-190428/review-line-clamp/autoclicker-pro.finalize.json",
+    "summaryReceipt": "/Users/thanate/Developer/Tools/AutoClickerPro/.archify/architecture-autoclicker-pro-20261024-190428/review-line-clamp/autoclicker-pro.finalize-summary.json",
+    "browserCheckReceipt": "/Users/thanate/Developer/Tools/AutoClickerPro/.archify/architecture-autoclicker-pro-20261024-190428/review-line-clamp/autoclicker-pro.browser-check.json"
+  },
+  "visualReview": "not-requested",
+  "failedStage": "browser-check",
+  "finishedAt": "2026-10-24T18:41:55.489Z",
+  "durationMs": 682,
+  "update": {
+    "status": "current",
+    "installedVersion": "3.2.0",
+    "availableVersion": "3.2.0",
+    "releaseNotes": null,
+    "checkedAt": "2026-10-24T15:48:29.002Z",
+    "source": "cache",
+    "noticeRequired": false,
+    "noticeText": null
+  }
+}

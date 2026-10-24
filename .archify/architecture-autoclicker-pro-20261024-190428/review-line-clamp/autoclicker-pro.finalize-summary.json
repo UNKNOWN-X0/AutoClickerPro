@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "ok": false,
+  "command": "finalize",
+  "status": "fail",
+  "type": "architecture",
+  "quality": "showcase",
+  "specification": {
+    "path": "/Users/thanate/Developer/Tools/AutoClickerPro/.archify/architecture-autoclicker-pro-20261024-190428/candidate.json",
+    "sha256": "b32f8c7e6c090e86af7940fef0382b04d270226a5756a52abe4dc1620861ef38",
+    "bytes": 7706
+  },
+  "artifact": {
+    "path": "/Users/thanate/Developer/Tools/AutoClickerPro/.archify/architecture-autoclicker-pro-20261024-190428/autoclicker-pro.html",
+    "sha256": "68b1fb76be992b21d1bde71199df4d4cb45270e36558a4c44488c52981d1443b",
+    "bytes": 825746
+  },
+  "gates": {
+    "validate": "pass",
+    "deliver": "pass",
+    "check": "pass",
+    "browser-check": "fail"
+  },
+  "failedStage": "browser-check",
+  "diagnostics": [
+    {
+      "code": "viewer/browser-check-runtime",
+      "severity": "error",
+      "message": "browser-check could not complete its Chrome inspection.",
+      "subject": {
+        "artifact": "/Users/thanate/Developer/Tools/AutoClickerPro/.archify/architecture-autoclicker-pro-20261024-190428/autoclicker-pro.html"
+      },
+      "evidence": {
+        "reason": "Chrome DevTools read pipe failed: stream ended\nChrome process: still running.\nChrome transport: Node v22.23.1, libuv 1.51.0, darwin; pid=8934, exitCode=null, signalCode=null.\nChrome read pipe: readable=false, ended=true, destroyed=false, receivedBytes=0, messages=0, bufferedBytes=0.\nChrome write pipe: writable=true, ended=false, destroyed=false, completedWrites=1, writtenBytes=50, bufferedBytes=0."
+      },
+      "supportedFixes": [
+        "resolve the reported Chrome inspection error, then rerun browser-check"
+      ]
+    }
+  ],
+  "diagnosticSummary": {
+    "total": 1,
+    "shown": 1,
+    "truncated": false
+  },
+  "evidence": {
+    "receipt": "/Users/thanate/Developer/Tools/AutoClickerPro/.archify/architecture-autoclicker-pro-20261024-190428/review-line-clamp/autoclicker-pro.finalize.json",
+    "summaryReceipt": "/Users/thanate/Developer/Tools/AutoClickerPro/.archify/architecture-autoclicker-pro-20261024-190428/review-line-clamp/autoclicker-pro.finalize-summary.json",
+    "browserCheckReceipt": "/Users/thanate/Developer/Tools/AutoClickerPro/.archify/architecture-autoclicker-pro-20261024-190428/review-line-clamp/autoclicker-pro.browser-check.json"
+  },
+  "update": {
+    "status": "current",
+    "installedVersion": "3.2.0",
+    "availableVersion": "3.2.0",
+    "releaseNotes": null,
+    "checkedAt": "2026-10-24T15:48:29.002Z",
+    "source": "cache",
+    "noticeRequired": false,
+    "noticeText": null
+  },
+  "visualReview": "not-requested",
+  "durationMs": 682,
+  "browserCheck": {
+    "requested": true,
+    "ran": false
+  }
+}
