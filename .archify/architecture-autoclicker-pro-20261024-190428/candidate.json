@@ -1,0 +1,322 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "AutoClicker Pro Architecture",
+    "output": ".archify/architecture-autoclicker-pro-20261024-190428/autoclicker-pro.html",
+    "quality_profile": "showcase",
+    "repository": {
+      "url": "https://github.com/UNKNOWN-X0/AutoClickerPro.git",
+      "provider": "github",
+      "link_mode": "web",
+      "revision": "1dc56d0933ffd26e9b6050252886c390d2345f7f"
+    },
+    "views": [
+      {
+        "id": "control-and-run",
+        "label": "Control and run",
+        "focus": [
+          "user",
+          "desktop-app",
+          "automation-runtime",
+          "pyautogui",
+          "system-input"
+        ]
+      },
+      {
+        "id": "record-and-store",
+        "label": "Record and store",
+        "focus": [
+          "user",
+          "global-listeners",
+          "desktop-app",
+          "local-json"
+        ]
+      }
+    ]
+  },
+  "components": [
+    {
+      "id": "user",
+      "type": "external",
+      "label": "Desktop user",
+      "sublabel": "Sets options and starts or records actions",
+      "pos": [
+        40,
+        260
+      ],
+      "size": [
+        170,
+        72
+      ]
+    },
+    {
+      "id": "desktop-app",
+      "type": "frontend",
+      "label": "Desktop app and handlers",
+      "sublabel": "CustomTkinter UI · hotkeys · local persistence",
+      "sources": [
+        {
+          "path": "autoclicker/app.py",
+          "line": 317,
+          "end_line": 335,
+          "label": "window and controls"
+        },
+        {
+          "path": "autoclicker/app.py",
+          "line": 56,
+          "end_line": 112,
+          "label": "start and stop"
+        },
+        {
+          "path": "autoclicker/app.py",
+          "line": 141,
+          "end_line": 190,
+          "label": "recording callbacks"
+        }
+      ],
+      "pos": [
+        280,
+        250
+      ],
+      "size": [
+        230,
+        92
+      ]
+    },
+    {
+      "id": "global-listeners",
+      "type": "backend",
+      "label": "Pynput listeners",
+      "sublabel": "Global hotkeys and mouse / keyboard capture",
+      "sources": [
+        {
+          "path": "autoclicker/dependencies.py",
+          "line": 23,
+          "end_line": 24,
+          "label": "listener imports"
+        },
+        {
+          "path": "autoclicker/app.py",
+          "line": 141,
+          "end_line": 190,
+          "label": "recording listeners"
+        },
+        {
+          "path": "autoclicker/app.py",
+          "line": 814,
+          "end_line": 817,
+          "label": "hotkey listener"
+        }
+      ],
+      "pos": [
+        280,
+        70
+      ],
+      "size": [
+        220,
+        82
+      ]
+    },
+    {
+      "id": "automation-runtime",
+      "type": "backend",
+      "label": "Click and macro runtime",
+      "sublabel": "Worker loops · replay · shared run state",
+      "sources": [
+        {
+          "path": "autoclicker/engine.py",
+          "line": 18,
+          "end_line": 55,
+          "label": "click loop"
+        },
+        {
+          "path": "autoclicker/engine.py",
+          "line": 58,
+          "end_line": 82,
+          "label": "macro replay"
+        },
+        {
+          "path": "autoclicker/state.py",
+          "line": 3,
+          "end_line": 12,
+          "label": "shared runtime state"
+        }
+      ],
+      "pos": [
+        570,
+        250
+      ],
+      "size": [
+        220,
+        92
+      ]
+    },
+    {
+      "id": "pyautogui",
+      "type": "backend",
+      "label": "PyAutoGUI",
+      "sublabel": "Moves pointer · clicks · presses replayed keys",
+      "sources": [
+        {
+          "path": "autoclicker/dependencies.py",
+          "line": 16,
+          "end_line": 20,
+          "label": "input setup and failsafe"
+        },
+        {
+          "path": "autoclicker/engine.py",
+          "line": 7,
+          "end_line": 15,
+          "label": "click actions"
+        },
+        {
+          "path": "autoclicker/engine.py",
+          "line": 71,
+          "end_line": 78,
+          "label": "replayed inputs"
+        }
+      ],
+      "pos": [
+        850,
+        250
+      ],
+      "size": [
+        190,
+        92
+      ]
+    },
+    {
+      "id": "system-input",
+      "type": "external",
+      "label": "Desktop mouse and keyboard",
+      "sublabel": "System input targets",
+      "sources": [
+        {
+          "path": "README.md",
+          "line": 11,
+          "end_line": 17,
+          "label": "input automation features"
+        }
+      ],
+      "pos": [
+        1100,
+        250
+      ],
+      "size": [
+        190,
+        92
+      ]
+    },
+    {
+      "id": "local-json",
+      "type": "external",
+      "label": "Local JSON files",
+      "sublabel": "Home-directory settings and user-selected macros",
+      "sources": [
+        {
+          "path": "autoclicker/app.py",
+          "line": 211,
+          "end_line": 235,
+          "label": "macro save and load"
+        },
+        {
+          "path": "autoclicker/app.py",
+          "line": 265,
+          "end_line": 310,
+          "label": "settings save and load"
+        },
+        {
+          "path": "autoclicker/config.py",
+          "line": 3,
+          "end_line": 5,
+          "label": "settings path"
+        }
+      ],
+      "pos": [
+        300,
+        480
+      ],
+      "size": [
+        230,
+        88
+      ]
+    }
+  ],
+  "connections": [
+    {
+      "id": "user-to-app",
+      "from": "user",
+      "to": "desktop-app",
+      "label": "configure and control"
+    },
+    {
+      "id": "user-to-listeners",
+      "from": "user",
+      "to": "global-listeners",
+      "label": "global key / mouse input",
+      "fromSide": "top",
+      "toSide": "left"
+    },
+    {
+      "id": "listeners-to-app",
+      "from": "global-listeners",
+      "to": "desktop-app",
+      "label": "hotkey and recording callbacks",
+      "fromSide": "bottom",
+      "toSide": "top"
+    },
+    {
+      "id": "app-to-runtime",
+      "from": "desktop-app",
+      "to": "automation-runtime",
+      "label": "starts worker with settings or macro"
+    },
+    {
+      "id": "runtime-to-input-library",
+      "from": "automation-runtime",
+      "to": "pyautogui",
+      "label": "click / move / press"
+    },
+    {
+      "id": "input-library-to-system",
+      "from": "pyautogui",
+      "to": "system-input",
+      "label": "controls pointer and keys"
+    },
+    {
+      "id": "app-to-json",
+      "from": "desktop-app",
+      "to": "local-json",
+      "label": "save / load settings and macros",
+      "fromSide": "bottom",
+      "toSide": "top"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "Control",
+      "items": [
+        "The app launches click and macro workers on daemon threads. (autoclicker/app.py:63–105)",
+        "Pynput listens for global hotkeys and captured mouse/keyboard events, then routes them to app callbacks. (autoclicker/app.py:42–52, 141–191, 814–817)"
+      ]
+    },
+    {
+      "dot": "emerald",
+      "title": "Execution",
+      "items": [
+        "Shared runtime state holds running and recording flags, counters, macro events, and multipoint targets. (autoclicker/state.py:3–10)",
+        "PyAutoGUI pointer-corner failsafe is enabled. (autoclicker/dependencies.py:16–20; README.md:17)"
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Local data",
+      "items": [
+        "Settings are saved in ~/.autoclicker_config.json; macro JSON is selected by the user. (autoclicker/config.py:3–5; autoclicker/app.py:211–235, 265–310)",
+        "Recorded macros can contain key presses and screen coordinates, so review files before sharing them. (README.md:40–42; autoclicker/app.py:149–180, 211–235)"
+      ]
+    }
+  ]
+}
