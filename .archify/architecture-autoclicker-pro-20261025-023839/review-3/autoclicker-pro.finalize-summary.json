@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "ok": true,
+  "command": "finalize",
+  "status": "pass",
+  "type": "architecture",
+  "quality": "showcase",
+  "specification": {
+    "path": "/Users/thanate/Developer/Tools/AutoClickerPro/.archify/architecture-autoclicker-pro-20261025-023839/candidate.json",
+    "sha256": "036cc7ac8acbea0109af0def4907a3b13d575fb2b95a08628c676549898bf935",
+    "bytes": 8629
+  },
+  "artifact": {
+    "path": "/Users/thanate/Developer/Tools/AutoClickerPro/.archify/architecture-autoclicker-pro-20261025-023839/autoclicker-pro.html",
+    "sha256": "bd19b25465e9bdb36423bbbe83d7bdabafee9dba0661639d5a29b2c05067757a",
+    "bytes": 831958
+  },
+  "gates": {
+    "validate": "pass",
+    "deliver": "pass",
+    "check": "pass",
+    "browser-check": "pass"
+  },
+  "diagnostics": [],
+  "diagnosticSummary": {
+    "total": 0,
+    "shown": 0,
+    "truncated": false
+  },
+  "evidence": {
+    "receipt": "/Users/thanate/Developer/Tools/AutoClickerPro/.archify/architecture-autoclicker-pro-20261025-023839/review-3/autoclicker-pro.finalize.json",
+    "summaryReceipt": "/Users/thanate/Developer/Tools/AutoClickerPro/.archify/architecture-autoclicker-pro-20261025-023839/review-3/autoclicker-pro.finalize-summary.json",
+    "browserCheckReceipt": "/Users/thanate/Developer/Tools/AutoClickerPro/.archify/architecture-autoclicker-pro-20261025-023839/review-3/autoclicker-pro.browser-check.json"
+  },
+  "update": {
+    "status": "current",
+    "installedVersion": "3.2.0",
+    "availableVersion": "3.2.0",
+    "releaseNotes": null,
+    "checkedAt": "2026-10-24T15:48:29.002Z",
+    "source": "cache",
+    "noticeRequired": false,
+    "noticeText": null
+  },
+  "visualReview": "not-requested",
+  "durationMs": 2013,
+  "browserCheck": {
+    "requested": true,
+    "ran": true
+  },
+  "visualReviewRecommendation": {
+    "action": "inspect-route-readability",
+    "signals": {
+      "resolvedCrossovers": 1
+    },
+    "reason": "Automated gates passed, but crossings or detours still need perceptual review before claiming visual quality.",
+    "affectedRoutes": {
+      "crossings": [
+        {
+          "left": {
+            "id": "pynput-callbacks",
+            "from": "pynput-listeners",
+            "to": "desktop-app",
+            "label": "hotkey / capture callbacks",
+            "collectionIndex": 2,
+            "artifactIndex": 3
+          },
+          "right": {
+            "id": "worker-ui-callbacks",
+            "from": "automation-workers",
+            "to": "desktop-app",
+            "label": "status / counter callbacks",
+            "collectionIndex": 4,
+            "artifactIndex": 5
+          },
+          "point": [
+            432,
+            291
+          ],
+          "sharedNode": "desktop-app"
+        }
+      ],
+      "detours": [],
+      "truncated": false
+    },
+    "hints": [
+      "pynput-listeners → desktop-app and automation-workers → desktop-app cross next to desktop-app: move node pynput-listeners or automation-workers so the two reach desktop-app from different sides (for example one level with it, one directly above or below it)."
+    ],
+    "repair": "Trace these relationships at the desktop viewport. For Architecture, use references/architecture-layout-repair.md: reflow a blocked main path or tangled connected scene, and repair an isolated defect locally only when the surrounding composition is accepted. Preserve all semantic content and user-fixed geometry. Rerun finalize once after the edit."
+  }
+}

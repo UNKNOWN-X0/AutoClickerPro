@@ -1,0 +1,165 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "AutoClicker Pro — Application Architecture",
+    "locale": "en",
+    "quality_profile": "showcase",
+    "output": ".archify/architecture-autoclicker-pro-20261025-023839/autoclicker-pro.html",
+    "repository": {
+      "url": "https://github.com/UNKNOWN-X0/AutoClickerPro.git",
+      "provider": "github",
+      "link_mode": "web",
+      "revision": "06dc68a57baf0e55838358a3e06ec55796bf4a19"
+    }
+  },
+  "components": [
+    {
+      "id": "desktop-user",
+      "type": "external",
+      "label": "Desktop user",
+      "sublabel": "Configures and operates the app",
+      "pos": [40, 320],
+      "size": [160, 78]
+    },
+    {
+      "id": "desktop-app",
+      "type": "frontend",
+      "label": "Desktop app and handlers",
+      "sublabel": "CustomTkinter UI · click / macro controls",
+      "sources": [
+        { "path": "autoclicker/app.py", "line": 317, "end_line": 335, "label": "window and controls" },
+        { "path": "autoclicker/app.py", "line": 63, "end_line": 112, "label": "start and stop" },
+        { "path": "autoclicker/app.py", "line": 814, "end_line": 833, "label": "listener lifecycle and close" }
+      ],
+      "pos": [300, 315],
+      "size": [250, 100]
+    },
+    {
+      "id": "pynput-listeners",
+      "type": "backend",
+      "label": "Pynput global listeners",
+      "sublabel": "Hotkeys · mouse and key capture",
+      "sources": [
+        { "path": "autoclicker/dependencies.py", "line": 23, "end_line": 24, "label": "listener imports" },
+        { "path": "autoclicker/app.py", "line": 141, "end_line": 191, "label": "macro capture" },
+        { "path": "autoclicker/app.py", "line": 814, "end_line": 817, "label": "global hotkeys" }
+      ],
+      "pos": [1450, 85],
+      "size": [210, 90]
+    },
+    {
+      "id": "automation-workers",
+      "type": "backend",
+      "label": "Click and macro workers",
+      "sublabel": "Daemon loops · shared run state",
+      "sources": [
+        { "path": "autoclicker/app.py", "line": 14, "end_line": 20, "label": "UI-thread callbacks" },
+        { "path": "autoclicker/app.py", "line": 63, "end_line": 105, "label": "worker creation" },
+        { "path": "autoclicker/engine.py", "line": 18, "end_line": 82, "label": "click and replay loops" }
+      ],
+      "pos": [700, 315],
+      "size": [240, 100]
+    },
+    {
+      "id": "pyautogui",
+      "type": "backend",
+      "label": "PyAutoGUI",
+      "sublabel": "Input calls · corner failsafe enabled",
+      "sources": [
+        { "path": "autoclicker/dependencies.py", "line": 16, "end_line": 20, "label": "input setup and failsafe" },
+        { "path": "autoclicker/engine.py", "line": 7, "end_line": 16, "label": "click and pointer actions" },
+        { "path": "autoclicker/engine.py", "line": 71, "end_line": 78, "label": "macro input calls" }
+      ],
+      "pos": [1080, 315],
+      "size": [190, 96]
+    },
+    {
+      "id": "desktop-input",
+      "type": "external",
+      "label": "Desktop mouse and keyboard",
+      "sublabel": "Platform permissions may gate access",
+      "sources": [
+        { "path": "README.md", "line": 11, "end_line": 17, "label": "input automation features" },
+        { "path": "README.md", "line": 28, "end_line": 28, "label": "platform permissions" }
+      ],
+      "pos": [1450, 315],
+      "size": [210, 94]
+    },
+    {
+      "id": "settings-json",
+      "type": "database",
+      "label": "Application settings JSON",
+      "sublabel": "~/.autoclicker_config.json",
+      "sources": [
+        { "path": "autoclicker/config.py", "line": 3, "end_line": 5, "label": "settings path" },
+        { "path": "autoclicker/app.py", "line": 265, "end_line": 310, "label": "settings save and load" },
+        { "path": "autoclicker/app.py", "line": 819, "end_line": 830, "label": "startup and close" }
+      ],
+      "pos": [300, 565],
+      "size": [235, 84]
+    },
+    {
+      "id": "macro-json",
+      "type": "database",
+      "label": "User-selected macro JSON",
+      "sublabel": "Recorded clicks, coordinates and keys",
+      "sources": [
+        { "path": "autoclicker/app.py", "line": 149, "end_line": 191, "label": "recorded event data" },
+        { "path": "autoclicker/app.py", "line": 211, "end_line": 235, "label": "file save and load" },
+        { "path": "autoclicker/engine.py", "line": 63, "end_line": 78, "label": "replayed events" }
+      ],
+      "pos": [40, 565],
+      "size": [230, 84]
+    }
+  ],
+  "connections": [
+    { "id": "user-controls-app", "from": "desktop-user", "to": "desktop-app", "label": "UI control" },
+    { "id": "desktop-input-to-pynput", "from": "desktop-input", "to": "pynput-listeners", "label": "global events", "fromSide": "top", "toSide": "bottom" },
+    { "id": "pynput-callbacks", "from": "pynput-listeners", "to": "desktop-app", "label": "hotkey / capture callbacks", "fromSide": "left", "toSide": "top" },
+    { "id": "app-starts-worker", "from": "desktop-app", "to": "automation-workers", "label": "starts worker" },
+    { "id": "worker-ui-callbacks", "from": "automation-workers", "to": "desktop-app", "label": "status / counter callbacks", "fromSide": "top", "toSide": "top" },
+    { "id": "worker-input-calls", "from": "automation-workers", "to": "pyautogui", "label": "click / key calls" },
+    { "id": "pyautogui-to-desktop", "from": "pyautogui", "to": "desktop-input", "label": "desktop input" },
+    { "id": "app-settings", "from": "desktop-app", "to": "settings-json", "label": "load/save settings", "fromSide": "bottom", "toSide": "top" },
+    { "id": "app-macro-files", "from": "desktop-app", "to": "macro-json", "label": "save/load macro events", "fromSide": "left", "toSide": "right" }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "Clicking and stopping",
+      "items": [
+        "The app passes click settings or macro events to daemon worker threads; clicking the main button or the configured hotkey toggles or stops the run. (autoclicker/app.py:42–60, 63–105)",
+        "Fixed click mode ends at its count. A non-positive click interval is raised to 50 ms; optional interval jitter and multi-point targets are applied in the worker. (autoclicker/app.py:85–103; autoclicker/engine.py:18–55)",
+        "Workers update the counter and schedule status refreshes back onto the Tk app. A click-loop input exception stops that loop and clears the running flag. (autoclicker/app.py:14–20; autoclicker/engine.py:42–55)"
+      ]
+    },
+    {
+      "dot": "emerald",
+      "title": "Recording and replay",
+      "items": [
+        "Recording stores pressed mouse buttons with elapsed time and screen coordinates, plus keyboard presses; the capture callbacks do not record pointer-only movement events. (autoclicker/app.py:141–191)",
+        "Replay waits between recorded event times, clicks at captured coordinates, and presses recorded keys; replay can be finite or infinite. (autoclicker/app.py:679–698; autoclicker/engine.py:58–82)",
+        "PyAutoGUI's top-left failsafe is enabled. The click loop stops on an input exception, while macro replay catches per-event exceptions and continues to later events. (autoclicker/dependencies.py:16–20; autoclicker/engine.py:42–55, 71–82)"
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Persistence and privacy",
+      "items": [
+        "Settings load from ~/.autoclicker_config.json at startup and save on request or close. Invalid or unreadable settings are silently ignored. (autoclicker/config.py:3–5; autoclicker/app.py:265–310, 819–830)",
+        "Macro save and open dialogs use a user-selected JSON path. Files can contain key presses and screen coordinates, so review them before sharing. (autoclicker/app.py:211–235; README.md:40–42)",
+        "The app does not itself grant system input access: macOS Accessibility permissions may be needed, and other platforms depend on their permission and input-library support. (README.md:28)"
+      ]
+    },
+    {
+      "dot": "violet",
+      "title": "Packaging and checks",
+      "items": [
+        "The local build helper installs PyInstaller if needed, deletes prior build/ and dist/ folders and root .spec files, then produces a one-file executable for the current OS. (build.py:25–64)",
+        "Engine tests replace PyAutoGUI with a mock and patch sleeps; they test counts, multipoint clicks, errors and replay without real input events. (tests/test_engine.py:1–68)",
+        "The GitHub workflow runs Pylint on Python 3.8, 3.9 and 3.10; it does not run the unit-test command. (.github/workflows/pylint.yml:5–23; README.md:55–63)"
+      ]
+    }
+  ]
+}
