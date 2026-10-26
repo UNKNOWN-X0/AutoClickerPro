@@ -70,5 +70,11 @@
     "seen": 1792798369.3554509,
     "ast_hash": "59c8ddf38f620b1067baf32ac93aec39",
     "semantic_hash": "59c8ddf38f620b1067baf32ac93aec39"
+  },
+  "AGENTS.md": {
+    "mtime": 1792868331.1563025,
+    "seen": 1793022911.035636,
+    "ast_hash": "1fd840c3868657581070dd0b1de8365e",
+    "semantic_hash": ""
   }
 }

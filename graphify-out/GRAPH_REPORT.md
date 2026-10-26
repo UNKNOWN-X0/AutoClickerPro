@@ -1,12 +1,19 @@
-# Graph Report - AutoClickerPro  (2026-10-24)
+# Graph Report - AutoClickerPro  (2026-10-26)
 
 ## Corpus Check
-- Corpus is ~2,836 words - fits in a single context window. You may not need a graph.
+- 12 files · ~2,924 words
+- Verdict: corpus is large enough that graph structure adds value.
+- Unclassified: 3 file(s) not represented in the graph (top: (none) 3)
 
 ## Summary
-- 109 nodes · 162 edges · 8 communities (5 shown, 3 thin omitted)
+- 112 nodes · 164 edges · 9 communities (5 shown, 4 thin omitted)
 - Extraction: 91% EXTRACTED · 9% INFERRED · 0% AMBIGUOUS · INFERRED: 15 edges (avg confidence: 0.85)
-- Token cost: unavailable (agent usage metadata was not exposed)
+- Token cost: 0 input · 0 output
+
+## Graph Freshness
+- Built from commit: `12ade4c8`
+- Run `git rev-parse HEAD` and compare to check if the graph is stale.
+- Run `graphify update .` after code changes (no API cost).
 
 ## Community Hubs (Navigation)
 - Application Interface
@@ -16,6 +23,7 @@
 - App Guide and Safety
 - Build Configuration
 - Input Event Listeners
+- Project instructions
 
 ## God Nodes (most connected - your core abstractions)
 1. `EngineTests` - 8 edges
@@ -34,15 +42,15 @@
   autoclicker/app.py → autoclicker/engine.py
 - `macro_replay()` --calls--> `macro_replay()`  [EXTRACTED]
   autoclicker/app.py → autoclicker/engine.py
-- `Mouse click automation` --conceptually_related_to--> `PyAutoGUI input automation dependency`  [INFERRED]
-  README.md → requirements.txt
 - `Mouse and keyboard macro recording and replay` --conceptually_related_to--> `pynput keyboard and mouse input dependency`  [INFERRED]
+  README.md → requirements.txt
+- `Mouse click automation` --conceptually_related_to--> `PyAutoGUI input automation dependency`  [INFERRED]
   README.md → requirements.txt
 
 ## Import Cycles
 - None detected.
 
-## Communities (8 total, 3 thin omitted)
+## Communities (9 total, 4 thin omitted)
 
 ### Community 0 - "Application Interface"
 Cohesion: 0.13
@@ -65,23 +73,23 @@ Cohesion: 0.28
 Nodes (8): hk_row(), listen(), on_change(), on_kp(), start_cap(), _key_str(), _start_recording(), on_kp()
 
 ## Knowledge Gaps
-- **5 isolated node(s):** `Locally saved application settings`, `Top-left pointer emergency failsafe`, `Engine tests use fake input devices`, `CustomTkinter UI dependency`, `Pillow image library dependency`
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 42 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **3 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **5 isolated node(s):** `Top-left pointer emergency failsafe`, `Engine tests use fake input devices`, `Locally saved application settings`, `CustomTkinter UI dependency`, `Pillow image library dependency`
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 44 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **4 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `hk_row()` connect `Input Event Listeners` to `Application Interface`?**
-  _High betweenness centrality (0.045) - this node is a cross-community bridge._
+  _High betweenness centrality (0.043) - this node is a cross-community bridge._
 - **Are the 3 inferred relationships involving `click_loop()` (e.g. with `_refresh_status()` and `_update_counter()`) actually correct?**
   _`click_loop()` has 3 INFERRED edges - model-reasoned connections that need verification._
-- **What connects `Locally saved application settings`, `Top-left pointer emergency failsafe`, `Engine tests use fake input devices` to the rest of the system?**
+- **What connects `Top-left pointer emergency failsafe`, `Engine tests use fake input devices`, `Locally saved application settings` to the rest of the system?**
   _5 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Application Interface` be split into smaller, more focused modules?**
   _Cohesion score 0.1282051282051282 - nodes in this community are weakly interconnected._
 - **Why does `_start_recording()` connect `Input Event Listeners` to `Application Interface`?**
-  _High betweenness centrality (0.026) - this node is a cross-community bridge._
+  _High betweenness centrality (0.025) - this node is a cross-community bridge._
 - **Are the 3 inferred relationships involving `macro_replay()` (e.g. with `_refresh_status()` and `_update_counter()`) actually correct?**
   _`macro_replay()` has 3 INFERRED edges - model-reasoned connections that need verification._
 - **Should `Pylint CI Workflow` be split into smaller, more focused modules?**
